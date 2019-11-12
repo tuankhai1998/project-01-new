@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0"></script>
     <!-- header -->
     <header>
         <div class="reponsive">
@@ -35,11 +38,27 @@
                     <button class="js-Header-search__btn header-search__btn"><i class="fas fa-search"></i></button>
                 </div>
 
+                <button class="js-header-btn header-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="header-menu-mobile">
+                    <li class="header-menu-mobile-item"><a href="#" title class="header-menu-mobile-item__link">Trang chủ</a></li>
+                    <li class="header-menu-mobile-item"><a href="#" title class="header-menu-mobile-item__link">sự kiện </a></li>
+                    <li class="header-menu-mobile-item"><a href="#" title class="header-menu-mobile-item__link">Xã hội </a></li>
+                    <li class="header-menu-mobile-item"><a href="#" title class="header-menu-mobile-item__link">Thế giới</a></li>
+                    <li class="header-menu-mobile-item"><a href="#" title class="header-menu-mobile-item__link">Giáo dục</a></li>
+                    <li class="header-menu-mobile-item"><a href="#" title class="header-menu-mobile-item__link">Giải trí</a></li>
+                    <li class="header-menu-mobile-item"><a href="#" title class="header-menu-mobile-item__link">Nhịp sống</a></li>
+                </ul>
+
             </div>
         </div>
     </header>
     <!-- header-close -->
 
+
+    <!-- main  -->
     <main class="main reponsive">
         <div class="main-content">
             <section class="main-content-hot">
@@ -395,6 +414,80 @@
             </div>
         </div>
     </main>
+    <!-- main-close  -->
+
+    <footer>
+        <div class="reponsive">
+            <div class="footer">
+                <div class="footer-col ">
+                    <p class="footer-col__title">
+                        Về Chúng tôi
+                    </p>
+                    <div class="footer-col-list ">
+                        <p class="footer-col-list__item footer-col-list__item--none">
+                            VIETSOZ được thành lập vào tháng 8 năm 2016, hứa hẹn sẽ là một công ty hàng đầu sẽ cung cấp
+                            các giải pháp công nghệ tốt nhất cả trong nước và ngoài nước.
+                        </p>
+                        <a href="mail:support@vietsoz.com" title
+                            class="footer-col-list__item footer-col-list__item--mail">support@vietsoz.com</a>
+                        <a href="tel:0988859692" title
+                            class="footer-col-list__item footer-col-list__item--phone">09.888.59.692</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <p class="footer-col__title">
+                        Danh mục
+                    </p>
+                    <div class="footer-col-list">
+                        <a href="#" title class="footer-col-list__item">
+                            Sự kiện
+                        </a>
+                        <a href="#" title class="footer-col-list__item">
+                            Xã hội
+                        </a>
+                        <a href="#" title class="footer-col-list__item">
+                            Thế giới
+                        </a>
+                        <a href="#" title class="footer-col-list__item">
+                            Giáo dục
+                        </a>
+                        <a href="#" title class="footer-col-list__item">
+                            Nhịp sống trẻ
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <p class="footer-col__title">
+                        tin tức nổi bật
+                    </p>
+                    <div class="footer-col-list">
+                        <a href="#" title class="footer-col-list__item">
+                            Năng lượng Mặt trời: Những ý tưởng sáng tạo và ngộ nghĩnh
+                        </a>
+                        <a href="#" title class="footer-col-list__item">
+                            Năng lượng Mặt trời: Những ý tưởng sáng tạo và ngộ nghĩnh
+                        </a>
+                        <a href="#" title class="footer-col-list__item">
+                            Năng lượng Mặt trời: Những ý tưởng sáng tạo và ngộ nghĩnh
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <p class="footer-col__title">
+                        Fanpage
+                    </p>
+                    <div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="340"
+                        data-hide-cover="false">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="all-right-reserved">© 2017 All right reserved - Bản quyền thuộc về VIETSOZ.com</p>
+    </footer>
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

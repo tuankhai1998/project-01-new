@@ -5,6 +5,15 @@
   src: url("../fonts/UTM\ Impact.ttf") format("truetype");
 }
 
+/*------------- screen -width-----------*/
+
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$width-12: 1200px;
+$width-995: 995px;
+
+
 /*-------------- color -----------------*/
 
 $color__main: #01a050;
@@ -29,6 +38,10 @@ $font-2nd: "UTM-Impact";
       width: 100%;
       padding-top: 62.5%;
     }
+
+    @include mobile(){
+      width: 40%;
+    }
   }
 
   &__title {
@@ -41,6 +54,41 @@ $font-2nd: "UTM-Impact";
     text-overflow: ellipsis;
     -webkit-line-clamp: 3;
     white-space: initial;
+
+    @include mobile(){
+      width: 60%;
+      padding-left: 2rem;
+    }
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin widt12 {
+  @media (max-width: #{$width-12}) {
+    @content;
+  }
+}
+
+@mixin widt995 {
+  @media (max-width: #{$width-995}) {
+    @content;
   }
 }
 
@@ -50,9 +98,9 @@ body {
   font-family: $font-def;
 }
 
-a:hover{
+a:hover {
   color: $color__main !important;
-  transition: .4s all ease-in-out;
+  transition: 0.4s all ease-in-out;
 }
 
 /*-------------header------------------*/
@@ -65,6 +113,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-flow: wrap;
   &-logo {
     font-family: $font-2nd;
     font-size: 3.4rem;
@@ -76,6 +125,10 @@ header {
   &-menu {
     display: flex;
 
+    @include widt995(){
+      display: none;
+    }
+
     &-item {
       &__link {
         text-transform: uppercase;
@@ -86,6 +139,30 @@ header {
     }
   }
 
+  &-menu-mobile {
+    width: 100%;
+    display: none;
+
+    &-item{
+
+      &:first-child &__link{
+        border: none;
+      }
+      &__link{
+        padding: 1rem;
+        text-transform: uppercase;
+        color: $color__main;
+        width: 100%;
+        border-top: 1px solid #bfbfbf;
+      
+      }
+    }
+
+    @include widt995() {
+      display: block;
+    }
+  }
+
   &-search {
     display: flex;
     align-items: center;
@@ -93,6 +170,10 @@ header {
     padding: 0.5rem;
     border-radius: 5px;
     min-width: 185px;
+
+    @include desktop() {
+      display: none;
+    }
 
     &__input {
       width: 100%;
@@ -111,6 +192,25 @@ header {
       cursor: pointer;
     }
   }
+
+  &-btn {
+    padding: 1rem;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+    background: $color__main;
+    display: none;
+
+    @include widt995(){
+      display: block;
+    }
+  }
+
+  @include desktop() {
+    padding: 0 1rem;
+  }
 }
 
 /*---------------main------------------*/
@@ -119,11 +219,17 @@ header {
   justify-content: space-between;
   margin-top: 3rem;
   margin-bottom: 3rem;
+  flex-flow: wrap;
+
+  @include widt12(){
+    padding: 0 1rem;
+  }
   &-content {
     width: calc(75% - 3rem);
     &-hot {
       display: flex;
       justify-content: space-between;
+      flex-flow: wrap;
       &-item {
         &__title {
           font-size: 2.4rem;
@@ -148,10 +254,20 @@ header {
 
       &-item--big {
         width: calc(65% - 1.5rem);
+
+        @include mobile(){
+          width: 100%;
+
+          margin-bottom: 2rem;
+        }
       }
 
       &-list {
         width: calc(35% - 1.5rem);
+
+        @include mobile(){
+          width: 100%;
+        }
 
         &-item {
           @include mini-item();
@@ -168,6 +284,7 @@ header {
         border-bottom: 1px solid $color__main;
         width: 100%;
         margin-bottom: 2rem;
+
         &__type {
           margin-bottom: -1px;
           text-transform: uppercase;
@@ -176,6 +293,10 @@ header {
           font-size: 1.8rem;
           font-weight: bold;
           padding: 1rem 2rem;
+
+          &:hover {
+            color: #fff !important;
+          }
         }
       }
 
@@ -183,6 +304,11 @@ header {
         width: calc(65% - 1.5rem);
         display: flex;
         flex-flow: wrap;
+
+        @include mobile(){
+          width: 100%;
+          margin-bottom: 2rem;
+        }
 
         &-title {
           font-weight: bold;
@@ -212,11 +338,20 @@ header {
         display: flex;
         flex-direction: column;
 
+       
+
+        @include mobile(){
+          width: 100%;
+        }
+
         &-item {
           @include mini-item();
         }
       }
     }
+     @include tablet(){
+       width: 100%;
+     }
   }
 
   &-line {
@@ -226,6 +361,8 @@ header {
 
   &-sidebar {
     width: calc(25% - 3rem);
+
+    
 
     .news-most-viewed {
       margin: 1.5rem 0;
@@ -245,12 +382,118 @@ header {
         &-item {
           @include mini-item();
 
-          &__title{
+          &__title {
             font-weight: 500;
             font-size: 1.4rem;
           }
         }
       }
     }
+
+    @include tablet(){
+      width: 100%;
+
+      .siderbar-qc{
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+/*---------------footer----------------*/
+
+footer {
+  background: $color__main;
+  padding: 3rem 0 5rem 0;
+  position: relative;
+
+  .footer {
+    display: flex;
+    flex-flow: wrap;
+    @include widt12(){
+      padding: 0 1rem;
+    }
+
+    &-col {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      padding-right: 5rem;
+      margin-bottom: 2rem;
+
+      @include desktop(){
+        width: 50%;
+      }
+
+      @include tablet(){
+        width: 90%;
+      }
+
+      &__title {
+        font-size: 2.1rem;
+        font-weight: 100;
+        text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 2rem;
+      }
+
+      &-list {
+        display: flex;
+        flex-direction: column;
+
+        a:hover {
+          color: $color__text--gray !important;
+        }
+
+        &__item {
+          color: #fff;
+          margin-bottom: 1rem;
+          font-size: 1.5rem;
+          text-align: justify;
+
+          &::before {
+            content: "\f105";
+            font-family: "fontawesome";
+          }
+        }
+
+        &__item--none {
+          &::before {
+            content: "";
+          }
+        }
+
+        &__item--mail {
+          &::before {
+            content: "\f0e0";
+            margin-right: 0.5rem;
+            width: 2rem;
+            display: inline-block;
+          }
+        }
+
+        &__item--phone {
+          &::before {
+            content: "\f095";
+            margin-right: 0.5rem;
+            width: 2rem;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  .all-right-reserved {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background: #fff;
+    font-size: 1.4rem;
+    padding: 1rem 0;
+    color: #454545;
   }
 }
