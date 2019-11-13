@@ -19,6 +19,8 @@ body{
 a{
     text-decoration: none;
     display: inline-block;
+    text-align: justify;
+
 }
 
 a:hover{
